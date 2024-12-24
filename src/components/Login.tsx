@@ -21,7 +21,7 @@ const Login = () => {
             password
         })
         if (data)
-            login()
+            login(data?.data?.user)
         console.log(data);
 
     }
@@ -34,7 +34,7 @@ const Login = () => {
                 </h1>
 
             </div>
-            <div className='flex flex-col gap-4 h-full bg-black py-10 px-10'>
+            <div className='flex flex-col gap-4 h-full  py-10 px-10'>
                 <label className='relative quicksand-regular '>
                     <input ref={usernameRef} className=' bg-[#3C3C3C] outline-none border-teal-600
                       focus:border h-10 pl-8 text-sm rounded-md px-32' placeholder='Useraname ' type="text" name="" id="" />
