@@ -5,8 +5,10 @@ import useAuth from './store/useAuth';
 import Dashboard from './pages/Dashboard';
 
 const App = () => {
-  const { isAuth } = useAuth()
-  
+  const { isAuth, checkAuth } = useAuth()
+  useEffect(() => {
+    checkAuth()
+  }, [isAuth])
   return (
     <Routes>
       <Route path='/' element={isAuth ? <Navigate to={'/dashboard'} /> : <Login />} />

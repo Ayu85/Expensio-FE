@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import axiosInstance from "../utils/axiosInstance";
 
 // Define a type for the state
 interface AuthState {
@@ -17,6 +18,13 @@ const useAuth = create<AuthState>((set) => ({
         set({ authUser: data })
     }, // login action
     logout: () => set({ isAuth: false }), // logout action
+    checkAuth: async () => {
+        const user = await axiosInstance.get('/auth/check')
+        if (user) {
+            set({ authUser: user.data.user })
+            set({ isAuth: true })
+        }
+    }
 }));
 
 export default useAuth;
