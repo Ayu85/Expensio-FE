@@ -1,4 +1,4 @@
-import DashBoardBody from '../components/DashBoardBody';
+import HomeDashboard from '../components/HomeDashboard';
 import Sidebar from '../components/SIdebar';
 import useAuth from '../store/useAuth'
 
@@ -7,9 +7,9 @@ const Dashboard = () => {
   console.log(authUser);
   
   return (
-    <div className='bg-[#1B1B1B] min-h-screen'>
+    <div className='bg-[#1B1B1B] min-h-screen flex'>
       <Sidebar/>
-      <DashBoardBody/>
+      <HomeDashboard/>
     </div>
   )
 }

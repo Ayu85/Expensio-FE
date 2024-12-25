@@ -3,6 +3,7 @@ import Login from './components/Login'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import useAuth from './store/useAuth';
 import Dashboard from './pages/Dashboard';
+import Sidebar from './components/SIdebar';
 
 const App = () => {
   const { isAuth, checkAuth } = useAuth()
