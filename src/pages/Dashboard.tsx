@@ -1,3 +1,5 @@
+import DashBoardBody from '../components/DashBoardBody';
+import Sidebar from '../components/SIdebar';
 import useAuth from '../store/useAuth'
 
 const Dashboard = () => {
@@ -5,8 +7,9 @@ const Dashboard = () => {
   console.log(authUser);
   
   return (
-    <div>
-sdadf
+    <div className='bg-[#1B1B1B] min-h-screen'>
+      <Sidebar/>
+      <DashBoardBody/>
     </div>
   )
 }

@@ -7,6 +7,7 @@ interface AuthState {
     authUser: null;
     login: (data: any) => void;
     logout: () => void;
+    checkAuth:()=>void
 }
 
 // Create the Zustand store with the state type
