@@ -2,19 +2,16 @@ import useAuth from '../store/useAuth'
 import { RiHomeOfficeLine } from "react-icons/ri";
 import { IoMdCard } from "react-icons/io";
 import { MdFlight } from "react-icons/md";
-import { FaRegCalendarCheck } from "react-icons/fa6";
 import { RiEqualizer3Line } from "react-icons/ri";
-import { IoMdCall } from "react-icons/io";
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     const { authUser } = useAuth()
     const navItems = [
-        { name: 'home', icon: <RiHomeOfficeLine /> },
-        { name: 'expenses', icon: <IoMdCard /> },
-        { name: 'trips', icon: <MdFlight /> },
-        { name: 'approvals', icon: <FaRegCalendarCheck /> },
-        { name: 'settings', icon: <RiEqualizer3Line /> },
-        { name: 'support', icon: <IoMdCall /> }
+        { name: 'Dashboard', icon: <RiHomeOfficeLine />, path: '/dashboard' },
+        { name: 'expenses', icon: <IoMdCard />, path: '/expenses' },
+        { name: 'trips', icon: <MdFlight />, path: '/trips' },
+        { name: 'settings', icon: <RiEqualizer3Line />, path: '/settings' },
     ]
     return (
         <div className='text-white w-72 '>
@@ -24,13 +21,13 @@ const Sidebar = () => {
                  aspect-square rounded-full'>{authUser?.fullname.charAt(0)}</h1>
                 <h1 className='capitalize quicksand-regular  text-xl text-[#A4A4A4]'>{authUser?.fullname}</h1>
             </div>
-            <div className='space-y  pt-6 pl-5'>
+            <div className='space-y-2  pt-6 pl-5'>
                 {navItems?.map((item, key) => {
-                    return <div key={key} className='flex rounded-md     hover:bg-[#28282A]   transition-all cursor-pointer
-                     py-2  pl-3 text-md text-[#D8FFFB] quicksand-regular items-center gap-2'>
+                    return <NavLink to={item.path} key={key} className={({ isActive }) => `flex  rounded-md     hover:bg-[#28282A]   transition-all cursor-pointer
+                     py-3  pl-3 text-md text-[#D8FFFB] quicksand-regular items-center ${isActive && "text-[#00DAC6] bg-[#28282A]"} gap-2`} >
                         <h1>{item?.icon}</h1>
                         <h1 className='capitalize'>{item?.name}</h1>
-                    </div>
+                    </NavLink>
                 })}
             </div>
 
